@@ -1,0 +1,26 @@
+<section class="order-confirmation">
+    <h1>Pedido Confirmado!</h1>
+    <p>Obrigado por comprar na Ingrid Total Luke. Seu pedido foi recebido com sucesso.</p>
+    
+    <h2>Detalhes do Pedido</h2>
+    <p><strong>Número do Pedido:</strong> {{ order.order_number }}</p>
+    <p><strong>Data:</strong> {{ order.created_at | date: "%d/%m/%Y" }}</p>
+    <p><strong>Total:</strong> {{ order.total_price | money }}</p>
+    
+    <h2>Resumo dos Itens</h2>
+    <ul>
+        {% for item in order.line_items %}
+            <li>{{ item.quantity }}x {{ item.title }} - {{ item.line_price | money }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Próximos Passos</h2>
+    <p>Você receberá atualizações sobre o status do seu pedido por e-mail.</p>
+    <p>Acompanhe seu pedido <a href="/account/orders">aqui</a>.</p>
+    
+    <h2>Desconto Especial</h2>
+    <p>Como agradecimento, use o cupom <strong>10OFF</strong> para 10% de desconto na sua próxima compra!</p>
+    
+    <p>Um e-mail de confirmação foi enviado para {{ order.email }}.</p>
+    <a href="/collections/all" class="btn">Continuar Comprando</a>
+</section>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shop.name }}</title>
+    {{ content_for_header }}
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
+</head>
+<body>
+    <header>
+        <h1>{{ shop.name }}</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/collections/all">Loja</a></li>
+                <li><a href="/cart">Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{ content_for_layout }}
+    </main>
+    <footer>
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
